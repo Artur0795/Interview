@@ -1,5 +1,5 @@
-# -*- coding: cp1251 -*-
 from interview import Stack
+
 
 balanced_code1 = '(((([{}]))))'
 balanced_code2 = '[([])((([[[]]])))]{()}'
@@ -16,26 +16,26 @@ def is_valid(lines):
     open_par = Stack()
 
     if len(lines) % 2 > 0:
-        return 'Несбалансированно'
+        return 'РќРµСЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕ'
 
     for i, char in enumerate(lines):
         if char in opening:
             open_par.push(char)
         elif char in closing:
             if open_par.is_empty():
-                return 'Несбалансированно'
+                return 'РќРµСЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕ'
             elif opening.index(open_par.peek()) != closing.index(char):
-                return 'Несбалансированно'
+                return 'РќРµСЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕ'
             else:
                 open_par.pop()
                 if open_par.is_empty() and i == len(lines)-1:
-                    return 'Сбалансированно'
+                    return 'РЎР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕ'
 
 
 if __name__ == '__main__':
-    print(f'Последовательность скобок 1: {is_valid(balanced_code1)}')
-    print(f'Последовательность скобок 2: {is_valid(balanced_code2)}')
-    print(f'Последовательность скобок 3: {is_valid(balanced_code3)}')
-    print(f'Последовательность скобок 4: {is_valid(unbalanced_code1)}')
-    print(f'Последовательность скобок 5: {is_valid(unbalanced_code2)}')
-    print(f'Последовательность скобок 6: {is_valid(unbalanced_code3)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 1: {is_valid(balanced_code1)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 2: {is_valid(balanced_code2)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 3: {is_valid(balanced_code3)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 4: {is_valid(unbalanced_code1)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 5: {is_valid(unbalanced_code2)}')
+    print(f'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРєРѕР±РѕРє 6: {is_valid(unbalanced_code3)}')
